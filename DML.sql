@@ -1,7 +1,7 @@
 USE practice_sql;
 
 -- 데이터 조작어 (DML)
--- 테이블에 레코드를 삽입, 조회, 수정, 삭제 할때 사용
+-- 테이블에 레코드를 삽입, 조회, 수정, 삭제 할때 사용0
 -- 레코드 : 여러 가지 데이터 타입을 가질 수 있는 복합형 구조의 데이터 타입
 
 
@@ -16,7 +16,7 @@ INSERT INTO example_table VALUES('데이터1','데이터2');
 -- INSERT INTO 테이블명 (컬럼명1, 컬럼명2,...) VALUES (데이터1, 데이터2, ...)
 -- 지정한 컬럼의 순서와 데이터의 순서가 일치해야함
 INSERT INTO example_table(column1) VALUES('안성준');
-insert into example_table(example_column2) vacolumn1lues ('30');
+insert into example_table(example_column2) values ('30');
 
 -- SELECT --
 -- 테이블에서 레코드를 조회'할 때 사용하는 명령어
@@ -60,7 +60,7 @@ insert into auto_table (num) values (0);
 
 -- 레코드만 초기값으로 돌림
 delete from auto_table;
-
+delete from example_table;
 -- primary key 값을 제거해준다.
 -- 데이터 테이블의 구조를 처음으로 돌려줌
 truncate table auto_table;
@@ -86,6 +86,8 @@ where B.idx= 1
 select example_column2 
 from example_table 
 where example_column2='데이터2';
+
+select * from example_table;
 
 
 

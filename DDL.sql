@@ -1,7 +1,7 @@
 # 주석 종류 : # 주석,  -- 주석
 
 -- 데이터 정의어 (DDL)
--- 데이터베이스, 테이블, 사용자 등(스키마)을 정의하는데 사용되는 언어alter
+-- 데이터베이스, 테이블, 사용자 등(스키마)을 정의하는데 사용되는 언어
 
 -- CREATE : 구조를 생성하는 명령어
 -- CREATE 생성할구조 구조이름 [... 구조의 정의];
@@ -86,7 +86,6 @@ CHANGE example_column1 column1 VARCHAR(20);
 -- 데이터베이스 문자셋 수정
 ALTER DATABASE practice_sql DEFAULT CHARACTER SET utf8;
 
--- 유저 비밀번호 변경
 
 
 
