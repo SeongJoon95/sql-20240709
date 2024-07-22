@@ -10,6 +10,7 @@
 CREATE DATABASE practice_sql;
 
 -- 데이터베이스 사용 : 데이터베이스 작업을 수행하기 전에 반드시 작업할 데이터베이스를 선택해야함
+-- 테이블 생성하기 전에 해줘야 함
 USE practice_sql;
 
 -- 테이블 생성
@@ -19,7 +20,7 @@ CREATE TABLE example_table (
 );
 
 -- 컬럼 데이터 타입
-cREATE TABLE data_type(
+CREATE TABLE data_type( 
 	-- INT : 정수타입
     int_column INT,
     -- DOUBLE : 실수 타입
@@ -42,6 +43,50 @@ cREATE TABLE data_type(
 -- CREATE USER '사용자명'@'접속IP' IDENTIFIED BY '비밀번호'
 -- 접속 IP 위치에 %를 하면 와일드카드로 접속되어 어떠한 위치에서든 할수 있도록 만들어 준다.
 CREATE USER 'developer'@'127.0.0.1' IDENTIFIED BY 'P!ssw0rd';
+
+SELECT * FROM example_table;
+SELECT * FROM data_type;
+
+-- DROP : 데이터 구조(스키마)를 삭제하는 명령어
+-- DROP : 스키마명
+
+-- 사용자 삭제
+-- 삭제할때 뒤에 위치까지 같이 작성해야함.
+DROP USER 'developer'@'127.0.0.1';
+
+-- 테이블 삭제
+-- 만약에 해당 테이블을 참조하고 있는 다른 테이블이 존재하면 테이블 삭제가 불가능
+DROP TABLE example_table;
+
+-- 데이터베이스 삭제
+DROP DATABASE practice_sql;
+
+
+-- ALTER : 구조를 변경하는 명렁어 --
+
+-- 테이블의 컬럼 추가
+ALTER TABLE example_table 
+ADD example_column3 VARCHAR(10);
+
+-- 테이블 컬럼 삭제
+ALTER  TABLE example_table
+DROP COLUMN example_column3;
+
+-- 테이블 컬럼 타입 수정
+ALTER TABLE example_table
+MODIFY COLUMN example_column2 TEXT;
+
+-- 테이블 컬럼 전체 수정
+ALTER TABLE example_table
+-- 이름만 바꾸고 싶을땐 뒤에오는 타입은 똑같이 적어줘야함
+CHANGE example_column1 column1 VARCHAR(20);
+
+-- 수정작업은 왠만하면 하지 않는 것이 좋다고 한다.
+
+-- 데이터베이스 문자셋 수정
+ALTER DATABASE practice_sql DEFAULT CHARACTER SET utf8;
+
+-- 유저 비밀번호 변경
 
 
 
