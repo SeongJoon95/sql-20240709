@@ -13,7 +13,7 @@ CREATE DATABASE practice_sql;
 -- 테이블 생성하기 전에 해줘야 함
 USE practice_sql;
 
--- 테이블 생성
+-- 테이블 생성-
 CREATE TABLE example_table (
 	example_column1 INT,
     example_column2 BOOLEAN
@@ -44,15 +44,16 @@ CREATE TABLE data_type(
 -- 접속 IP 위치에 %를 하면 와일드카드로 접속되어 어떠한 위치에서든 할수 있도록 만들어 준다.
 CREATE USER 'developer'@'127.0.0.1' IDENTIFIED BY 'P!ssw0rd';
 
+-- 사용자 삭제
+-- 삭제할때 뒤에 위치까지 같이 작성해야함.
+DROP USER 'developer'@'127.0.0.1';
+
+
 SELECT * FROM example_table;
 SELECT * FROM data_type;
 
 -- DROP : 데이터 구조(스키마)를 삭제하는 명령어
 -- DROP : 스키마명
-
--- 사용자 삭제
--- 삭제할때 뒤에 위치까지 같이 작성해야함.
-DROP USER 'developer'@'127.0.0.1';
 
 -- 테이블 삭제
 -- 만약에 해당 테이블을 참조하고 있는 다른 테이블이 존재하면 테이블 삭제가 불가능
@@ -63,7 +64,6 @@ DROP DATABASE practice_sql;
 
 
 -- ALTER : 구조를 변경하는 명렁어 --
-
 -- 테이블의 컬럼 추가
 ALTER TABLE example_table 
 ADD example_column3 VARCHAR(10);
