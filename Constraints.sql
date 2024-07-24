@@ -25,7 +25,8 @@ select * from not_null_table;
 update not_null_table set not_null_column = null;
 
 
--- unique : 해당 컬럼에 중복된 데이터를 포함할 수 없도록 하는 제약
+-- unique --
+-- 해당 컬럼에 중복된 데이터를 포함할 수 없도록 하는 제약
 -- (자기 자신 테이블 insert, update)에 영향을 미침
 create table unique_table(
 	unique_column int unique,
@@ -61,11 +62,13 @@ insert into key_table values(1,2);
 select * from key_table;
 
 -- primary key 제약조건을 두 개 이상 지정 불가능
+-- pramary key는 테이블항 하나씩만 지정 가능
 create table composite_table (
 	primary1 int primary key,
     primary2 int primary key
 ); -- 실행이 안되는 문구
 
+-- constraint : 두개 이상의 대체키를 동시에 기본키로 만들때 사용
 create table composite_table(
 	primary1 int,
     primary2 int,
@@ -78,8 +81,9 @@ create table foreign_table(
 	primary1 int primary key,
     foreign1 int,
     -- constraint의 제약조건 이름은 foreign_key 이고 타입은 foreign이고 foreign key에 걸리는 컬럼은 foreign1이다.
+    -- key_table에 있는 primary_column을 참조 한다는 뜻
     constraint foreign_key foreign key(foreign1)
-    references key_table(primary_column) -- key_table에 있는 primary_column을 참조 한다는 뜻
+    references key_table(primary_column)
 );
 
 
@@ -139,8 +143,13 @@ select * from check_table;
 
 -- check 제약조건이 걸린 컬럼에 조건에 해당하지 않는 값을 삽입, 수정 할 수 없음
 insert into check_table values(1, '남');
+insert into check_table values(2, '여');
 insert into check_table values(2, '남자');
+
 update check_table set check_column = '여자';
+update check_table set check_column = '남';
+
+
 
 -- default 제약조건 : 해당 컬럼에 삽입시 값이 지정되지 않으면 기본값으로 지정하는 제약
 create table default_table(
