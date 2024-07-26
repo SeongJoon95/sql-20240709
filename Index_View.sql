@@ -8,6 +8,7 @@ CREATE INDEX employee_name_idx ON employee(name);
 CREATE INDEX employee_name_age_idx ON employee(name, age);
 CREATE INDEX employee_name_desc_idx ON employee(name DESC);
 
+SHOW INDEX FROM employee;
 
 -- 테이블 인덱스 추가
 -- ALTER 
